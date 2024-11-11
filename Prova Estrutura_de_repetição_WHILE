@@ -1,0 +1,17 @@
+# Jogo de adivinhação: O jogador tem 3 tentativas para acertar um número secreto.
+
+acerto = 7  # Número secreto que o jogador precisa adivinhar
+tentativas = 3  # Número máximo de tentativas
+
+while tentativas > 0:  # Loop principal: continua enquanto houver tentativas
+    numero = int(input('Digite um número: '))  # Solicita o número ao jogador
+
+    if numero != acerto:  # Se o número digitado for diferente do número secreto
+        print('Tente novamente')
+        tentativas -= 1  # Decrementa o contador de tentativas
+    else:  # Se o número digitado for igual ao número secreto
+        print('Parabéns, você acertou!')
+        break  # Sai do loop, pois o jogador acertou
+
+else:  # Executado apenas se o loop terminar sem encontrar um break
+    print(f'Infelizmente suas 3 tentativas acabaram.\nReinicie e tente novamente.')
