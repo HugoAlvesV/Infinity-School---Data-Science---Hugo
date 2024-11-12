@@ -1,0 +1,17 @@
+# Solicita ao usuario o inicio e fim da interação:
+inicio = int(input('Digite o número inicial: '))
+final = int(input('Digite o número final: '))
+
+# Variável de armazenamento da soma:
+soma = 0
+
+# Loop For:
+for i in range(inicio, final + 1):
+    if i % 2 == 0:
+        soma += i
+
+else:
+    if soma == 0:
+        print('Não há números pares no intervalo.')
+    else:
+        print(f'A soma dos números pares no intervalo é de {soma}.')
