@@ -1,0 +1,44 @@
+# Crie um programa em Python que simule um sistema de login.
+
+# O programa deve permitir ao usuário três tentativas para acertar o nome de usuário e a senha corretos.
+# Caso o usuário erre as credenciais, o programa deve fornecer uma mensagem informando quantas tentativas restam.
+# Se o usuário acertar, uma mensagem de boas-vindas deve ser exibida, e o programa deve terminar imediatamente.
+
+# Se todas as três tentativas falharem, o programa deve usar um loop for para exibir
+# uma mensagem de "Acesso bloqueado" repetida três vezes.
+--------------------------------------------------------------------------------------------------------------------
+
+# Credenciais corretas
+usuario_permitido = 'admin' # Nome de usuário permitido pelo sistema
+senha_permitida = '1234' # Senha correspondente ao usuário
+
+# Número de tentativas permitidas
+tentativas = 3
+
+# Loop principal para gerenciar as tentativas de login
+for i in range(3):
+    print(f'Infome seu Usuário e Senha.\n')
+
+    # Solicita o nome de usuário e senha do usuário
+    usuario = input('Digite o nome de usuário: ') # Recebe o nome de usuário
+    senha = input('Digite a senha: ') # Recebe a senha
+
+    # Verifica se as credenciais fornecidas estão incorretas
+    if usuario != usuario_permitido or senha != senha_permitida:
+        tentativas -= 1  # Diminui o número de tentativas restantes
+        if tentativas != 0:
+            # Exibe mensagem de erro com o número de tentativas restantes
+            print(f'Usuário ou Senha incorretos, tente novamente!\nAinda restam {tentativas} tentativas.\n ')
+
+        else:
+            # Caso as tentativas sejam esgotadas, exibe mensagem de bloqueio de acesso
+            print(f'Usuário ou Senha incorretos, você atingiu o limite de 3 tentativas.\n')
+            for _ in range (3): # Reforça o bloqueio repetindo a mensagem 3 vezes
+                print('Acesso Bloqueado.')
+
+
+    # Verifica se as credenciais fornecidas estão corretas
+    elif usuario == usuario_permitido and senha == senha_permitida:
+        # Mensagem de boas-vindas e finaliza o loop com acesso permitido
+        print('Boas-Vindas! Acesso permitido.')
+        break # Encerra o loop após autenticação bem-sucedida
